@@ -1,5 +1,7 @@
 package com.app.oshadhi.myapplication;
 
+import android.content.Intent;
+import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,18 +9,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class BMICalculator extends AppCompatActivity {
-    EditText height, weight;
-    Button calculate;
-    TextView result;
+public class BMICalculationActivity extends AppCompatActivity {
+    Button calculate, update;
+    DataBaseHelper db;
+    TextView result,height, weight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_bmicalculation);
+        db = new DataBaseHelper(this);
         height = findViewById(R.id.height);
         weight = findViewById(R.id.weight);
         calculate = findViewById(R.id.calculate);
         result = findViewById(R.id.result);
+        update =findViewById(R.id.update_val);
+        setValues();
 
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,7 +31,25 @@ public class BMICalculator extends AppCompatActivity {
                 calculateBMI();
             }
         });
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent PUpdateIntent = new Intent(BMICalculationActivity.this, PersonalDataUpdateActivity.class);
+                startActivity(PUpdateIntent);
+                finish();
+            }
+        });
     }
+    private void setValues(){
+            Cursor res = db.viewUser("oshadhi");
+            if(res.getCount() > 0 ){
+                while(res.moveToNext()){
+                    height.setText(res.getString(1));
+                    weight.setText(res.getString(2));
+                }
+        }
+    }
+
     private void calculateBMI(){
         String height_str = height.getText().toString();
         String weight_str = weight.getText().toString();

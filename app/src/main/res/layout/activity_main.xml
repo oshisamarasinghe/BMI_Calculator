@@ -4,78 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.app.oshadhi.myapplication.BMICalculator">
+    tools:context="com.app.oshadhi.myapplication.MainActivity">
 
-    <TextView
-        android:id="@+id/lbl_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:text="Enter your Height (cm)"
+    <Button
+        android:id="@+id/bmi"
+        android:layout_width="135dp"
+        android:layout_height="85dp"
+        android:text="BMI"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="121dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <EditText
-        android:id="@+id/height"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:ems="10"
-        android:inputType="number|numberDecimal"
-        android:text="height"
-        app:layout_constraintHorizontal_bias="0.0"
+    <Button
+        android:id="@+id/personal_data"
+        android:layout_width="154dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="16dp"
+        android:text="personal_data"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lbl_height" />
-    <TextView
-        android:id="@+id/lbl_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:text="Enter your Weight (kg)"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/height" />
-
-    <EditText
-        android:id="@+id/weight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number|numberDecimal"
-        android:text="weight"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="97dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lbl_weight"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/bmi" />
 
     <Button
-        android:id="@+id/calculate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calculate"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="173dp"
+        android:id="@+id/view_data"
+        android:layout_width="134dp"
+        android:layout_height="61dp"
+        android:text="Personal Data View"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weight"/>
+        app:layout_constraintTop_toBottomOf="@+id/personal_data"/>
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="16dp"
-        android:text="Your BMI value"
+    <!--Button
+        android:id="@+id/update_data"
+        android:layout_width="145dp"
+        android:layout_height="69dp"
+        android:text="Personal Data Update"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calculate" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/view_data" /-->
 
 </android.support.constraint.ConstraintLayout>
